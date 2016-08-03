@@ -8,7 +8,9 @@ public class GetPageTest {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Document doc = Jsoup.connect("http://www.queshu.com/link/978031620164/100980395/").get();
+		//doc就是得到的网页内容
 		String page_url = doc.head().child(0).data();
+		//下面的判断是缺书网的抓取逻辑
 		if(page_url.contains("duomai")){
 			String[] arr = page_url.split("jd.com%2F");
 			String id = arr[1].substring(0,arr[1].length()-6);
